@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.util.Calendar;
 import javax.swing.*;
 
@@ -48,6 +49,10 @@ public class AgeCalculator extends JFrame {
         gbc.gridwidth = 2; 
         gbc.anchor = GridBagConstraints.CENTER;
         mainPanel.add(calculateAgeButton, gbc);
+
+        calculateAgeButton.addActionListener((ActionEvent e) -> {
+            calculateAge();
+        });
 
         add(mainPanel);
         setVisible(true);
