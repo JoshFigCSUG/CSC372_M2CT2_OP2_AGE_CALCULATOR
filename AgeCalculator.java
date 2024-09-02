@@ -1,9 +1,11 @@
 import java.awt.*;
+import java.util.Calendar;
 import javax.swing.*;
 
 public class AgeCalculator extends JFrame {
 
     private JPanel mainPanel;
+    private JSpinner birthDateSpinner;
 
     public AgeCalculator() {
         setTitle("Age Calculator");
@@ -23,6 +25,20 @@ public class AgeCalculator extends JFrame {
         gbc.gridwidth = 2; // Span two columns
         gbc.anchor = GridBagConstraints.CENTER; // Center component
         mainPanel.add(promptLabel, gbc);
+
+        // Birth Date Spinner
+        SpinnerDateModel dateModel = new SpinnerDateModel();
+        dateModel.setCalendarField(Calendar.YEAR);
+        birthDateSpinner = new JSpinner(dateModel);
+        JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(birthDateSpinner, "MMMM-dd-yyyy");
+        birthDateSpinner.setEditor(dateEditor);
+        birthDateSpinner.setPreferredSize(new Dimension(150, 30));
+        birthDateSpinner.setMinimumSize(new Dimension(150, 30));
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        mainPanel.add(birthDateSpinner, gbc);
 
         add(mainPanel);
         setVisible(true);
