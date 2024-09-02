@@ -6,6 +6,7 @@ public class AgeCalculator extends JFrame {
 
     private JPanel mainPanel;
     private JSpinner birthDateSpinner;
+    private JButton calculateAgeButton;
 
     public AgeCalculator() {
         setTitle("Age Calculator");
@@ -39,6 +40,14 @@ public class AgeCalculator extends JFrame {
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         mainPanel.add(birthDateSpinner, gbc);
+
+        // Calculate Age Button
+        calculateAgeButton = new JButton("Calculate Age");
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2; 
+        gbc.anchor = GridBagConstraints.CENTER;
+        mainPanel.add(calculateAgeButton, gbc);
 
         add(mainPanel);
         setVisible(true);
