@@ -12,6 +12,18 @@ public class AgeCalculator extends JFrame {
         setSize(500, 200);
         setLocationRelativeTo(null); // Center the window
 
+        mainPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10); // Add padding
+
+        // Prompt Label
+        JLabel promptLabel = new JLabel("Enter your birth date (Month-Day-Year) then hit the button to calculate your age:");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2; // Span two columns
+        gbc.anchor = GridBagConstraints.CENTER; // Center component
+        mainPanel.add(promptLabel, gbc);
+
         add(mainPanel);
         setVisible(true);
     }
