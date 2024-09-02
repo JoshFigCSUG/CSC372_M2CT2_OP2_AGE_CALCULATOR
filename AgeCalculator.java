@@ -80,4 +80,8 @@ public class AgeCalculator extends JFrame {
         int age = period.getYears();
         ageLabel.setText("Your age is: " + age);
     }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new AgeCalculator());
+    }
 }
