@@ -1,6 +1,10 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.*;
 
 public class AgeCalculator extends JFrame {
@@ -8,6 +12,7 @@ public class AgeCalculator extends JFrame {
     private JPanel mainPanel;
     private JSpinner birthDateSpinner;
     private JButton calculateAgeButton;
+    private JLabel ageLabel;
 
     public AgeCalculator() {
         setTitle("Age Calculator");
@@ -56,5 +61,15 @@ public class AgeCalculator extends JFrame {
 
         add(mainPanel);
         setVisible(true);
+    }
+
+    private void calculateAge() {
+        Date selectedDate = (Date) birthDateSpinner.getValue();
+        LocalDate birthDate = selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate currentDate = LocalDate.now();
+        Period period = Period.between(birthDate, currentDate);
+
+        int age = period.getYears();
+        ageLabel.setText("Your age is: " + age);
     }
 }
