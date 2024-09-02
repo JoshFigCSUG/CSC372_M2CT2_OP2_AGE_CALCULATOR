@@ -55,6 +55,14 @@ public class AgeCalculator extends JFrame {
         gbc.anchor = GridBagConstraints.CENTER;
         mainPanel.add(calculateAgeButton, gbc);
 
+        // Age Label
+        ageLabel = new JLabel();
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        mainPanel.add(ageLabel, gbc);
+
         calculateAgeButton.addActionListener((ActionEvent e) -> {
             calculateAge();
         });
